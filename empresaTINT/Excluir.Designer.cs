@@ -116,6 +116,7 @@
             this.Controls.Add(this.AtualizarTitulo);
             this.Name = "Excluir";
             this.Text = "Excluir";
+            this.Load += new System.EventHandler(this.Excluir_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

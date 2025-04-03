@@ -12,10 +12,16 @@ namespace empresaTINT
 {
     public partial class Consultar : Form
     {
+
+        DAO consul;
         public Consultar()
         {
+            consul= new DAO();
             InitializeComponent();
-        }
+            ConfigurarDataGrid();//configuro a estrutura da coluna e linha
+            NomeColunas();// nomeando as colunas
+            AdicionarDados();//adicionando os dados para visualização
+        }//fim do construtor
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -75,7 +81,40 @@ namespace empresaTINT
 
         private void Consultar_Load(object sender, EventArgs e)
         {
-
+            
         }//consultar botão
+
+        public void NomeColunas() 
+        {
+            dataGridView1.Columns[0].Name = "Código";
+            dataGridView1.Columns[1].Name = "Nome";
+            dataGridView1.Columns[2].Name = "Telefone";
+            dataGridView1.Columns[3].Name = "Endereço";
+
+        }//fim do NomeColunas
+
+        public void ConfigurarDataGrid() 
+        { 
+            dataGridView1.AllowUserToAddRows= false;//não pode adicionar linha o ususario
+            dataGridView1.AllowUserToDeleteRows = false;//não pode apagar linha o ususario
+            dataGridView1.AllowUserToResizeColumns = false;//não pode redimencionar colunas 
+            dataGridView1.AllowUserToResizeRows = false;// não pode redimencionar linhas
+            dataGridView1.ColumnCount = 4; // quantidade de colunas 
+        }//fim do ConfigurarDataGrid
+
+        public void AdicionarDados()
+        {
+            consul.PreencherVetor();//Preencher os vetores c/ dados do banco
+            for (int i=0;i < consul.QuantidadeDeDados();i++)//para qunado preencher todos os dados
+            {
+                dataGridView1.Rows.Add(consul.codigo[i], consul.nome[i], consul.telefone[i], consul.endereco[i]);//colocando para preencher//nomes da classe DAO;nomne dos vetores
+            }//fim do for 
+        }//fim do AdicionarDados
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }//fim do dataGridView
     }
 }

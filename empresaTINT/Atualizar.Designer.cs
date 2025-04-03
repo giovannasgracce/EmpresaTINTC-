@@ -39,6 +39,7 @@
             this.NomeNovo = new System.Windows.Forms.Label();
             this.CodigoNovo = new System.Windows.Forms.Label();
             this.AtualizarTitulo = new System.Windows.Forms.Label();
+            this.buscar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // VoltarAtualizar
@@ -99,7 +100,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(142, 101);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(124, 20);
+            this.textBox1.Size = new System.Drawing.Size(83, 20);
             this.textBox1.TabIndex = 28;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -150,12 +151,25 @@
             this.AtualizarTitulo.TabIndex = 23;
             this.AtualizarTitulo.Text = "Atualizar";
             // 
+            // buscar
+            // 
+            this.buscar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buscar.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold);
+            this.buscar.Location = new System.Drawing.Point(231, 98);
+            this.buscar.Name = "buscar";
+            this.buscar.Size = new System.Drawing.Size(62, 23);
+            this.buscar.TabIndex = 34;
+            this.buscar.Text = "Buscar";
+            this.buscar.UseVisualStyleBackColor = false;
+            this.buscar.Click += new System.EventHandler(this.buscar_Click);
+            // 
             // Atualizar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(394, 388);
+            this.Controls.Add(this.buscar);
             this.Controls.Add(this.VoltarAtualizar);
             this.Controls.Add(this.AtualizarNovo);
             this.Controls.Add(this.textBox4);
@@ -169,6 +183,7 @@
             this.Controls.Add(this.AtualizarTitulo);
             this.Name = "Atualizar";
             this.Text = "Atualizar";
+            this.Load += new System.EventHandler(this.Atualizar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +202,6 @@
         private System.Windows.Forms.Label NomeNovo;
         private System.Windows.Forms.Label CodigoNovo;
         private System.Windows.Forms.Label AtualizarTitulo;
+        private System.Windows.Forms.Button buscar;
     }
 }
